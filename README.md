@@ -1,30 +1,33 @@
 # simple-ui-autocomplete
 
-> Made with create-react-library
-
-[![NPM](https://img.shields.io/npm/v/simple-ui-autocomplete.svg)](https://www.npmjs.com/package/simple-ui-autocomplete) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+> Simple ui autocomplete width meterial-ui, styled-component
 
 ## Install
 
 ```bash
-npm install --save simple-ui-autocomplete
+npm i --save simple-ui-autocomplete
 ```
 
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
-
-import MyComponent from 'simple-ui-autocomplete'
-import 'simple-ui-autocomplete/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
-}
+import { AutoComplete } from 'simple-ui-autocomplete'
+<AutoComplete
+  list={[]} // Array should have id, name and logo if waht to display icon
+  changed={(item) =>}
+  label='Simple ui autocomplete'
+  multiple={true}
+  value={[]} // default values [] - if multiple true, '' - if multiple false,
+  clearable={false}
+  noOptionsText='List is empty'
+  size='medium' // options 'small', 'medium', 'large'
+  variant='outlined' // options 'outlined'
+  autoComplete='never-on'
+  error={false}
+  className='myClass'
+/>
 ```
 
-## License
+## Author
 
-MIT © [](https://github.com/)
+Nimesh Deuja

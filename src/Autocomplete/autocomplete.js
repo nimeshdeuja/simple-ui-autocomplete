@@ -11,8 +11,6 @@ const AutoComplete = (props) => {
     value,
     changed,
     label,
-    marginBottom,
-    marginTop,
     clearable,
     error,
     secondaryText,
@@ -29,9 +27,7 @@ const AutoComplete = (props) => {
       fullWidth
       multiple={multiple}
       options={list}
-      className={`${className} ${marginBottom && 'marginBottom'} ${
-        marginTop && 'marginTop'
-      } ${error && 'error'}`}
+      className={`${className} ${error && 'error'}`}
       value={value !== '' ? value : null}
       getOptionLabel={(option) => (option ? option.name : null)}
       noOptionsText={noOptionsText}
