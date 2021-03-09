@@ -1,6 +1,6 @@
 # simple-ui-autocomplete
 
-> Simple ui autocomplete width meterial-ui, styled-component
+> Simple UI autocomplete with material-UI, styled-component.
 
 ## Install
 
@@ -26,6 +26,16 @@ import { AutoComplete } from 'simple-ui-autocomplete'
   error={false}
   className='myClass'
 />
+```
+
+### Peer Dependencies
+
+> Make sure that your project has all these packages installed.
+
+```bash
+npm i @material-ui/core@4.11.3
+npm i @material-ui/lab@4.0.0-alpha.57
+npm i styled-components@5.2.1
 ```
 
 ## Author

@@ -22,52 +22,54 @@ const AutoComplete = (props) => {
     className
   } = props
   return (
-    <Autocomplete
-      disableClearable={clearable}
-      fullWidth
-      multiple={multiple}
-      options={list}
-      className={`${className} ${error && 'error'}`}
-      value={value !== '' ? value : null}
-      getOptionLabel={(option) => (option ? option.name : null)}
-      noOptionsText={noOptionsText}
-      getOptionSelected={(option, innerValue) => option.id === innerValue.id}
-      onChange={(event, el) => changed(el)}
-      size={size}
-      renderOption={(option) => {
-        if (option.logo) {
-          return (
-            <RenderOptionStyled withLogo={true}>
-              {option.logo && (
-                <div>
-                  <img src={option.logo} alt={option.name} />
-                </div>
-              )}
-              <span>
-                {option.name}
-                {secondaryText && (
-                  <span>
-                    {secondaryTextLable && `${secondaryTextLable}: `}
-                    {option[secondaryText]}
-                  </span>
+    <InputStyled>
+      <Autocomplete
+        disableClearable={clearable}
+        fullWidth
+        multiple={multiple}
+        options={list}
+        className={`${className} ${error && 'error'}`}
+        value={value !== '' ? value : null}
+        getOptionLabel={(option) => (option ? option.name : null)}
+        noOptionsText={noOptionsText}
+        getOptionSelected={(option, innerValue) => option.id === innerValue.id}
+        onChange={(event, el) => changed(el)}
+        size={size}
+        renderOption={(option) => {
+          if (option.logo) {
+            return (
+              <RenderOptionStyled withLogo={true}>
+                {option.logo && (
+                  <div>
+                    <img src={option.logo} alt={option.name} />
+                  </div>
                 )}
-              </span>
-            </RenderOptionStyled>
-          )
-        } else {
-          return option.name
-        }
-      }}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          label={label}
-          variant={variant}
-          size={size}
-          autoComplete={autoComplete}
-        />
-      )}
-    />
+                <span>
+                  {option.name}
+                  {secondaryText && (
+                    <span>
+                      {secondaryTextLable && `${secondaryTextLable}: `}
+                      {option[secondaryText]}
+                    </span>
+                  )}
+                </span>
+              </RenderOptionStyled>
+            )
+          } else {
+            return option.name
+          }
+        }}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label={label}
+            variant={variant}
+            size={size}
+            autoComplete={autoComplete}
+          />
+        )}
+      />
+    </InputStyled>
   )
 }
 
@@ -89,6 +91,30 @@ AutoComplete.propTypes = {
 }
 
 export default AutoComplete
+
+const InputStyled = styled.div`
+  ${(props) => {
+    let theme = props.theme
+    let margin = theme.gLG
+    if (props.noMargin) margin = '0'
+    return `
+            display:flex;
+            margin-bottom:${margin};
+            width:100%;
+            .MuiInputBase-root:focus,
+            .MuiFormControl-root:focus,
+            input{
+              border: none;
+              -webkit-appearance: none;
+              -ms-accelerator: none;
+              -moz-appearance: none;
+              appearance: none;
+              resize: none;
+              outline: none;
+            }
+        `
+  }}
+`
 
 const RenderOptionStyled = styled.div`
   ${(props) => {
